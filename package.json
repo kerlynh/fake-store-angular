@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "node -r dotenv/config node.js && ng serve",
     "build": "ng build",
+    "build:frontend": "ng build --output-path=dist",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
