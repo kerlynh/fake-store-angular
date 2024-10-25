@@ -1,6 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/server/(.*)", "destination": "/server" },
-    { "source": "/(.*)", "destination": "/dist/$1" }
-  ]
-}

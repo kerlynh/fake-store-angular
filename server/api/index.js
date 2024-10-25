@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 require("dotenv").config();
+const PORT = 3001;
 
 const app = express();
 app.use(express.static("public"));
@@ -11,6 +12,8 @@ app.use(bodyParser.json());
 app.use(cors({ origin: true, credentials: true }));
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
+
+app.get("/", (req, res) => res.send("Hi! Happy to see you!"));
 
 app.post("/checkout", async (req, res, next) => {
   try {
@@ -37,4 +40,6 @@ app.post("/checkout", async (req, res, next) => {
   }
 });
 
-app.listen(4242, () => console.log("app is runing on 4242"));
+app.listen(PORT, () => console.log("app is runing", PORT));
+
+module.exports = app;
